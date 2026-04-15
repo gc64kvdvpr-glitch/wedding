@@ -23,60 +23,44 @@
     <link rel="stylesheet" href="wedding/style.css" />
   </head>
   <body>
+
     <!-- ═══════════════════════════════════════════ -->
-    <!-- SECTION 0 : COVER / HERO                    -->
+    <!-- GRASS BACKGROUND (fixed behind everything) -->
     <!-- ═══════════════════════════════════════════ -->
-    <section id="hero" class="section hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <p class="hero-date-top">2026. 00. 00</p>
+    <div class="grass-bg" aria-hidden="true"></div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- MAIN CARD (white card on grass)             -->
+    <!-- ═══════════════════════════════════════════ -->
+    <main class="card-wrapper">
+
+      <!-- HERO AREA -->
+      <section id="hero" class="card-section hero-section">
+        <p class="hero-label">WEDDING DAY</p>
         <div class="hero-names">
-          <span class="hero-name">신랑이름</span>
-          <span class="hero-ampersand">&amp;</span>
-          <span class="hero-name">신부이름</span>
+          <span class="hero-name-groom">신랑이름</span>
+          <span class="hero-and">and</span>
+          <span class="hero-name-bride">신부이름</span>
         </div>
-      </div>
-      <div class="hero-image-wrap">
-        <img
-          src="wedding/images/main.jpg"
-          alt="웨딩 메인 사진"
-          class="hero-image"
-          id="hero-image"
-        />
-      </div>
-      <div class="hero-bottom">
-        <p class="hero-venue">우리, 결혼합니다</p>
-        <div class="scroll-indicator">
-          <span></span>
-        </div>
-      </div>
-    </section>
 
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- SECTION 1 : GREETING / 인사말               -->
-    <!-- ═══════════════════════════════════════════ -->
-    <section id="greeting" class="section greeting">
-      <div class="section-inner">
-        <div class="section-label">ANNOUNCEMENT</div>
-        <h2 class="section-title">결혼을 알립니다</h2>
-        <div class="greeting-divider"></div>
-        <p class="greeting-text">
-          서로 다른 길을 걸어온 두 사람이<br />
-          이제 같은 길을 걸어가려 합니다.<br /><br />
-          함께한 시간만큼 서로를 아끼며<br />
-          평생을 함께하겠습니다.<br /><br />
-          저희의 새로운 시작을<br />
-          소중한 분들께 알려드립니다.<br />
-          따뜻한 축복 부탁드립니다.
+        <div class="hero-photo-frame">
+          <img src="wedding/images/main.jpg" alt="웨딩 메인 사진" class="hero-photo" />
+        </div>
+
+        <p class="hero-greeting-text">
+          서로 다른 길을 걸어온 두 사람이<br/>
+          이제 같은 길을 걸어가려 합니다.<br/><br/>
+          함께한 시간만큼 서로를 아끼며<br/>
+          평생을 함께하겠습니다.
         </p>
-      </div>
-    </section>
+        <p class="hero-greeting-script">우리, 결혼합니다.</p>
+      </section>
 
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- SECTION 2 : FAMILY / 혼주 소개               -->
-    <!-- ═══════════════════════════════════════════ -->
-    <section id="family" class="section family">
-      <div class="section-inner">
+      <!-- DIVIDER -->
+      <div class="card-divider"></div>
+
+      <!-- FAMILY -->
+      <section id="family" class="card-section family-section">
         <div class="section-label">FAMILY</div>
         <h2 class="section-title">두 사람을 소개합니다</h2>
         <div class="family-card">
@@ -102,47 +86,51 @@
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- SECTION 3 : GUESTBOOK / 방명록               -->
-    <!-- ═══════════════════════════════════════════ -->
-    <section id="guestbook" class="section guestbook">
-      <div class="section-inner">
+      <!-- DIVIDER -->
+      <div class="card-divider"></div>
+
+      <!-- BABY PHOTOS — 우리의 시작 -->
+      <section id="baby" class="card-section baby-section">
+        <div class="section-label">THE BEGINNING</div>
+        <h2 class="section-title">우리의 시작</h2>
+        <p class="baby-desc">이렇게 작았던 우리가, 만나 하나가 됩니다.</p>
+        <div class="baby-photos">
+          <div class="baby-photo-item">
+            <div class="baby-photo-frame">
+              <img src="wedding/images/baby-groom.jpg" alt="신랑 어린시절" class="baby-img" />
+            </div>
+            <p class="baby-label">신랑</p>
+          </div>
+          <div class="baby-photo-item">
+            <div class="baby-photo-frame">
+              <img src="wedding/images/baby-bride.jpg" alt="신부 어린시절" class="baby-img" />
+            </div>
+            <p class="baby-label">신부</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- DIVIDER -->
+      <div class="card-divider"></div>
+
+      <!-- GUESTBOOK -->
+      <section id="guestbook" class="card-section guestbook-section">
         <div class="section-label">GUESTBOOK</div>
         <h2 class="section-title">축하 메시지</h2>
         <p class="guestbook-desc">축하의 마음을 남겨주세요</p>
 
-        <!-- Write Form -->
         <form id="guestbook-form" class="guestbook-form">
           <div class="guestbook-form-row">
-            <input
-              type="text"
-              id="gb-name"
-              class="guestbook-input"
-              placeholder="이름"
-              required
-            />
-            <input
-              type="password"
-              id="gb-password"
-              class="guestbook-input"
-              placeholder="비밀번호 (수정·삭제 시 필요)"
-              required
-            />
+            <input type="text" id="gb-name" class="guestbook-input" placeholder="이름" required />
+            <input type="password" id="gb-password" class="guestbook-input" placeholder="비밀번호 (수정·삭제 시 필요)" required />
           </div>
-          <textarea
-            id="gb-message"
-            class="guestbook-textarea"
-            placeholder="축하 메시지를 남겨주세요."
-            required
-          ></textarea>
+          <textarea id="gb-message" class="guestbook-textarea" placeholder="축하 메시지를 남겨주세요." required></textarea>
           <div class="guestbook-form-bottom">
             <label class="guestbook-secret-label">
               <input type="checkbox" id="gb-secret" class="guestbook-checkbox" />
-              <span class="guestbook-secret-icon">🔒</span>
-              비밀글
+              <span class="guestbook-secret-icon">🔒</span> 비밀글
             </label>
             <button type="submit" id="gb-submit" class="guestbook-submit-btn">
               등록하기 <span class="submit-arrow">→</span>
@@ -150,18 +138,14 @@
           </div>
         </form>
 
-        <!-- Messages List -->
-        <div id="guestbook-messages" class="guestbook-messages">
-          <!-- JS will render messages -->
-        </div>
-      </div>
-    </section>
+        <div id="guestbook-messages" class="guestbook-messages"></div>
+      </section>
 
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- SECTION 4 : ACCOUNT / 마음 전하기            -->
-    <!-- ═══════════════════════════════════════════ -->
-    <section id="account" class="section account">
-      <div class="section-inner">
+      <!-- DIVIDER -->
+      <div class="card-divider"></div>
+
+      <!-- ACCOUNT / GIFT -->
+      <section id="account" class="card-section account-section">
         <div class="section-label">GIFT</div>
         <h2 class="section-title">마음 전하기</h2>
         <p class="account-desc">축하의 마음을 담아 축의금을 전달해 보세요.</p>
@@ -176,9 +160,7 @@
                 <span class="account-bank">OO은행</span>
                 <span class="account-number">000-0000-0000-00</span>
                 <span class="account-holder">예금주명</span>
-                <button class="copy-btn" data-copy="000-0000-0000-00">
-                  복사
-                </button>
+                <button class="copy-btn" data-copy="000-0000-0000-00">복사</button>
               </div>
             </div>
           </div>
@@ -191,37 +173,28 @@
                 <span class="account-bank">OO은행</span>
                 <span class="account-number">000-0000-0000-00</span>
                 <span class="account-holder">예금주명</span>
-                <button class="copy-btn" data-copy="000-0000-0000-00">
-                  복사
-                </button>
+                <button class="copy-btn" data-copy="000-0000-0000-00">복사</button>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- FOOTER                                       -->
-    <!-- ═══════════════════════════════════════════ -->
-    <footer class="footer">
-      <p class="footer-names">신랑이름 &amp; 신부이름</p>
-      <p class="footer-date">0000. 00. 00</p>
-    </footer>
+      <!-- FOOTER -->
+      <footer class="card-footer">
+        <p class="footer-names">신랑이름 &amp; 신부이름</p>
+        <p class="footer-date">0000. 00. 00</p>
+      </footer>
 
-    <!-- Password Modal for secret/edit/delete messages -->
+    </main>
+
+    <!-- Password Modal -->
     <div class="pwd-modal-overlay" id="pwd-modal">
       <div class="pwd-modal">
         <h3 class="pwd-modal-title" id="pwd-modal-title">비밀번호 입력</h3>
         <p class="pwd-modal-desc" id="pwd-modal-desc">작성 시 설정한 비밀번호를<br/>입력해주세요.</p>
-        <input
-          type="password"
-          id="pwd-modal-input"
-          class="pwd-modal-input"
-          placeholder="비밀번호"
-        />
+        <input type="password" id="pwd-modal-input" class="pwd-modal-input" placeholder="비밀번호" />
         <p class="pwd-modal-error" id="pwd-modal-error"></p>
-        <!-- Edit mode: message textarea (hidden by default) -->
         <textarea id="pwd-modal-edit-msg" class="pwd-modal-edit-msg" placeholder="수정할 메시지를 입력하세요" style="display:none;"></textarea>
         <div class="pwd-modal-buttons">
           <button type="button" class="pwd-modal-btn cancel" id="pwd-modal-cancel">취소</button>
