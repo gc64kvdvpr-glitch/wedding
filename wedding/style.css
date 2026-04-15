@@ -284,10 +284,10 @@ input, textarea { font-family: inherit; }
 }
 
 .baby-scrap-frame {
-  width: 95px;
+  width: 130px;
   background: white;
-  padding: 5px;
-  padding-bottom: 8px;
+  padding: 6px;
+  padding-bottom: 10px;
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1),
               0 0 0 1px rgba(0,0,0,0.04);
@@ -349,12 +349,20 @@ input, textarea { font-family: inherit; }
 
 .guestbook-form-row {
   display: flex;
+  flex-direction: column;
   gap: 0.4rem;
   margin-bottom: 0.4rem;
 }
 
+.guestbook-form-row-inline {
+  display: flex;
+  gap: 0.4rem;
+}
+
 .guestbook-input {
   flex: 1;
+  width: 100%;
+  min-width: 0;
   border: 1px solid var(--border);
   border-radius: 6px;
   padding: 0.55rem 0.7rem;
@@ -449,6 +457,47 @@ input, textarea { font-family: inherit; }
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  min-height: 60px;
+}
+
+/* Pagination */
+.guestbook-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  margin-top: var(--sp-sm);
+}
+
+.gb-page-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.gb-page-btn:hover {
+  background: rgba(74,90,58,0.08);
+  color: var(--text-primary);
+}
+
+.gb-page-btn.active {
+  background: var(--accent);
+  color: white;
+}
+
+.gb-page-btn:disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.gb-page-arrow {
+  font-size: 0.8rem;
 }
 
 .guestbook-empty {

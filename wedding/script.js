@@ -153,17 +153,31 @@ function subscribeToMessages() {
     .subscribe();
 }
 
-/* Render messages */
+/* Pagination state */
+const MESSAGES_PER_PAGE = 5;
+let currentPage = 1;
+
+/* Render messages with pagination */
 function renderMessages(messages) {
   const container = document.getElementById('guestbook-messages');
+  const paginationEl = document.getElementById('guestbook-pagination');
   if (!container) return;
 
   if (messages.length === 0) {
     container.innerHTML = '<p class="guestbook-empty">첫 번째 축하 메시지를 남겨주세요!</p>';
+    if (paginationEl) paginationEl.innerHTML = '';
     return;
   }
 
-  container.innerHTML = messages.map(msg => {
+  const totalPages = Math.ceil(messages.length / MESSAGES_PER_PAGE);
+  if (currentPage > totalPages) currentPage = totalPages;
+  if (currentPage < 1) currentPage = 1;
+
+  const start = (currentPage - 1) * MESSAGES_PER_PAGE;
+  const end = start + MESSAGES_PER_PAGE;
+  const pageMessages = messages.slice(start, end);
+
+  container.innerHTML = pageMessages.map(msg => {
     const isHidden = msg.is_secret && !revealedIds.has(msg.id);
     const dateStr = msg.created_at
       ? new Date(msg.created_at).toLocaleDateString('ko-KR', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\. /g, '.').replace(/\.$/, '')
@@ -204,6 +218,46 @@ function renderMessages(messages) {
       const action = btn.getAttribute('data-action');
       const id = btn.getAttribute('data-id');
       openPasswordModal(id, action);
+    });
+  });
+
+  // Render pagination
+  renderPagination(totalPages);
+}
+
+/* Pagination buttons */
+function renderPagination(totalPages) {
+  const paginationEl = document.getElementById('guestbook-pagination');
+  if (!paginationEl || totalPages <= 1) {
+    if (paginationEl) paginationEl.innerHTML = '';
+    return;
+  }
+
+  let html = '';
+
+  // Previous arrow
+  html += `<button class="gb-page-btn gb-page-arrow" ${currentPage <= 1 ? 'disabled' : ''} data-page="${currentPage - 1}">‹</button>`;
+
+  // Page numbers
+  for (let i = 1; i <= totalPages; i++) {
+    html += `<button class="gb-page-btn ${i === currentPage ? 'active' : ''}" data-page="${i}">${i}</button>`;
+  }
+
+  // Next arrow
+  html += `<button class="gb-page-btn gb-page-arrow" ${currentPage >= totalPages ? 'disabled' : ''} data-page="${currentPage + 1}">›</button>`;
+
+  paginationEl.innerHTML = html;
+
+  // Click handlers
+  paginationEl.querySelectorAll('.gb-page-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const page = parseInt(btn.getAttribute('data-page'));
+      if (page >= 1 && page <= totalPages) {
+        currentPage = page;
+        renderMessages(guestbookMessages);
+        // Scroll to guestbook top
+        document.getElementById('guestbook')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     });
   });
 }
