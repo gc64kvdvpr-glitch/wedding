@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════
-   MOBILE WEDDING INVITATION — SCRIPT
+   WEDDING ANNOUNCEMENT — SCRIPT (v2 minimal)
    ═══════════════════════════════════════════════ */
 
 /* ── Supabase Configuration ─────────────────── */
@@ -12,20 +12,9 @@ if (typeof supabase !== 'undefined' && supabase.createClient) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-
-  /* ── 1. Scroll-based fade-in animations ─────── */
   initScrollAnimations();
-
-  /* ── 2. Accordion (account section) ─────────── */
   initAccordion();
-
-  /* ── 3. Copy-to-clipboard ──────────────────── */
   initCopyButtons();
-
-  /* ── 4. Lightbox for gallery ───────────────── */
-  initLightbox();
-
-  /* ── 5. Guestbook (Supabase) ───────────────── */
   initGuestbook();
 });
 
@@ -34,29 +23,18 @@ document.addEventListener('DOMContentLoaded', () => {
    1. SCROLL ANIMATIONS
    ═════════════════════════════════════════════════ */
 function initScrollAnimations() {
-  // Mark sections for fade-in
-  const sections = document.querySelectorAll('.section-inner');
-  sections.forEach(s => s.classList.add('fade-in'));
-
-  // Story cards (artbook)
-  const storyCards = document.querySelectorAll('.story-card[data-aos]');
-
-  const observerOptions = {
-    threshold: 0.15,
-    rootMargin: '0px 0px -40px 0px'
-  };
-
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
       }
     });
-  }, observerOptions);
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
-  sections.forEach(s => observer.observe(s));
-  storyCards.forEach(c => observer.observe(c));
+  document.querySelectorAll('.section-inner, .section-label, .section-title, [data-aos], .family-card, .guestbook-form, .guestbook-card, .accordion-item').forEach(el => {
+    el.classList.add('fade-up');
+    observer.observe(el);
+  });
 }
 
 
@@ -67,14 +45,18 @@ function initAccordion() {
   const headers = document.querySelectorAll('.accordion-header');
   headers.forEach(header => {
     header.addEventListener('click', () => {
-      const item = header.closest('.accordion-item');
-      const isOpen = item.classList.contains('open');
+      const targetId = header.getAttribute('data-target');
+      const body = document.getElementById(targetId);
+      const arrow = header.querySelector('.accordion-arrow');
+      const isOpen = body.classList.contains('open');
 
-      // Close all others
-      document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('open'));
+      // Close all
+      document.querySelectorAll('.accordion-body').forEach(b => b.classList.remove('open'));
+      document.querySelectorAll('.accordion-arrow').forEach(a => { a.style.transform = 'rotate(0deg)'; });
 
       if (!isOpen) {
-        item.classList.add('open');
+        body.classList.add('open');
+        arrow.style.transform = 'rotate(180deg)';
       }
     });
   });
@@ -82,11 +64,10 @@ function initAccordion() {
 
 
 /* ═════════════════════════════════════════════════
-   5. COPY TO CLIPBOARD
+   3. COPY TO CLIPBOARD
    ═════════════════════════════════════════════════ */
 function initCopyButtons() {
-  const buttons = document.querySelectorAll('.copy-btn');
-  buttons.forEach(btn => {
+  document.querySelectorAll('.copy-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const text = btn.getAttribute('data-copy');
       navigator.clipboard.writeText(text).then(() => {
@@ -98,20 +79,13 @@ function initCopyButtons() {
           btn.textContent = '복사';
         }, 2000);
       }).catch(() => {
-        // Fallback for older browsers
         const ta = document.createElement('textarea');
         ta.value = text;
         document.body.appendChild(ta);
         ta.select();
         document.execCommand('copy');
         document.body.removeChild(ta);
-        btn.classList.add('copied');
-        btn.textContent = '완료';
         showToast('계좌번호가 복사되었습니다');
-        setTimeout(() => {
-          btn.classList.remove('copied');
-          btn.textContent = '복사';
-        }, 2000);
       });
     });
   });
@@ -119,38 +93,7 @@ function initCopyButtons() {
 
 
 /* ═════════════════════════════════════════════════
-   6. LIGHTBOX
-   ═════════════════════════════════════════════════ */
-function initLightbox() {
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-  const lightboxClose = document.getElementById('lightbox-close');
-
-  if (!lightbox) return;
-
-  // Attach to gallery images (when real images are added)
-  document.querySelectorAll('.gallery-item img').forEach(img => {
-    img.addEventListener('click', () => {
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt;
-      lightbox.classList.add('active');
-    });
-  });
-
-  lightboxClose.addEventListener('click', () => {
-    lightbox.classList.remove('active');
-  });
-
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) {
-      lightbox.classList.remove('active');
-    }
-  });
-}
-
-
-/* ═════════════════════════════════════════════════
-   7. GUESTBOOK (Supabase)
+   4. GUESTBOOK (Supabase) — with Edit & Delete
    ═════════════════════════════════════════════════ */
 let guestbookMessages = [];
 let revealedIds = new Set();
@@ -186,16 +129,26 @@ async function fetchMessages() {
   }
 }
 
-/* Realtime subscription */
+/* Realtime subscription — INSERT, UPDATE, DELETE */
 function subscribeToMessages() {
   supabaseClient
     .channel('public:guestbook')
     .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'guestbook' }, (payload) => {
-      // Avoid duplicates
       if (!guestbookMessages.find(m => m.id === payload.new.id)) {
         guestbookMessages.unshift(payload.new);
         renderMessages(guestbookMessages);
       }
+    })
+    .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'guestbook' }, (payload) => {
+      const idx = guestbookMessages.findIndex(m => m.id === payload.new.id);
+      if (idx !== -1) {
+        guestbookMessages[idx] = payload.new;
+        renderMessages(guestbookMessages);
+      }
+    })
+    .on('postgres_changes', { event: 'DELETE', schema: 'public', table: 'guestbook' }, (payload) => {
+      guestbookMessages = guestbookMessages.filter(m => m.id !== payload.old.id);
+      renderMessages(guestbookMessages);
     })
     .subscribe();
 }
@@ -217,26 +170,40 @@ function renderMessages(messages) {
       : '방금 전';
 
     return `
-      <div class="guestbook-card ${isHidden ? 'secret' : ''}" data-msg-id="${msg.id}" ${isHidden ? 'data-secret="true"' : ''}>
+      <div class="guestbook-card ${isHidden ? 'secret' : ''}" data-msg-id="${msg.id}">
         <div class="guestbook-card-header">
           <span class="guestbook-card-name">
             ${escapeHtml(msg.name)}
             ${msg.is_secret ? (isHidden ? '<span class="secret-icon">🔒</span>' : '<span class="secret-icon unlocked">🔓</span>') : ''}
           </span>
-          <span class="guestbook-card-date">${dateStr}</span>
+          <div class="guestbook-card-actions">
+            <span class="guestbook-card-date">${dateStr}</span>
+            <button class="gb-action-btn gb-edit-btn" data-action="edit" data-id="${msg.id}" title="수정">✎</button>
+            <button class="gb-action-btn gb-delete-btn" data-action="delete" data-id="${msg.id}" title="삭제">✕</button>
+          </div>
         </div>
-        <p class="guestbook-card-message ${isHidden ? 'hidden-text' : ''}">
+        <p class="guestbook-card-message ${isHidden ? 'hidden-text' : ''}" ${isHidden ? 'data-secret="true"' : ''}>
           ${isHidden ? '비밀글입니다. 클릭하여 확인하세요.' : escapeHtml(msg.message)}
         </p>
       </div>
     `;
   }).join('');
 
-  // Attach click handlers for secret messages
-  container.querySelectorAll('.guestbook-card[data-secret="true"]').forEach(card => {
-    card.addEventListener('click', () => {
-      const msgId = card.getAttribute('data-msg-id');
-      openPasswordModal(msgId);
+  // Secret message click handler
+  container.querySelectorAll('.guestbook-card-message[data-secret="true"]').forEach(el => {
+    el.addEventListener('click', () => {
+      const msgId = el.closest('.guestbook-card').getAttribute('data-msg-id');
+      openPasswordModal(msgId, 'reveal');
+    });
+  });
+
+  // Edit/Delete button handlers
+  container.querySelectorAll('.gb-action-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const action = btn.getAttribute('data-action');
+      const id = btn.getAttribute('data-id');
+      openPasswordModal(id, action);
     });
   });
 }
@@ -266,11 +233,18 @@ function initGuestbookForm() {
     submitBtn.innerHTML = '등록 중... <span class="submit-spinner"></span>';
 
     try {
-      const { error } = await supabaseClient
+      const { data, error } = await supabaseClient
         .from('guestbook')
-        .insert([{ name, password, message, is_secret: isSecret }]);
+        .insert([{ name, password, message, is_secret: isSecret }])
+        .select();
 
       if (error) throw error;
+
+      // Immediately add to local list (in case realtime is slow)
+      if (data && data[0] && !guestbookMessages.find(m => m.id === data[0].id)) {
+        guestbookMessages.unshift(data[0]);
+        renderMessages(guestbookMessages);
+      }
 
       nameInput.value = '';
       passwordInput.value = '';
@@ -287,8 +261,9 @@ function initGuestbookForm() {
   });
 }
 
-/* Password Modal */
+/* Password Modal — supports reveal / edit / delete */
 let currentPromptMsgId = null;
+let currentPromptAction = 'reveal'; // 'reveal' | 'edit' | 'delete'
 
 function initPasswordModal() {
   const modal = document.getElementById('pwd-modal');
@@ -310,7 +285,11 @@ function initPasswordModal() {
   });
 
   input.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') submitPasswordCheck();
+    if (e.key === 'Enter') {
+      const editMsg = document.getElementById('pwd-modal-edit-msg');
+      if (editMsg && editMsg.style.display !== 'none') return; // allow Enter in textarea
+      submitPasswordCheck();
+    }
   });
 
   input.addEventListener('input', () => {
@@ -319,17 +298,39 @@ function initPasswordModal() {
   });
 }
 
-function openPasswordModal(msgId) {
+function openPasswordModal(msgId, action = 'reveal') {
   currentPromptMsgId = msgId;
+  currentPromptAction = action;
+
   const modal = document.getElementById('pwd-modal');
   const input = document.getElementById('pwd-modal-input');
   const errorEl = document.getElementById('pwd-modal-error');
+  const titleEl = document.getElementById('pwd-modal-title');
+  const descEl = document.getElementById('pwd-modal-desc');
+  const editMsg = document.getElementById('pwd-modal-edit-msg');
+  const confirmBtn = document.getElementById('pwd-modal-confirm');
 
   input.value = '';
   errorEl.textContent = '';
   errorEl.classList.remove('show');
-  modal.classList.add('active');
+  editMsg.style.display = 'none';
+  editMsg.value = '';
 
+  if (action === 'edit') {
+    titleEl.textContent = '메시지 수정';
+    descEl.innerHTML = '비밀번호를 입력한 후<br/>메시지를 수정해주세요.';
+    confirmBtn.textContent = '수정';
+  } else if (action === 'delete') {
+    titleEl.textContent = '메시지 삭제';
+    descEl.innerHTML = '삭제하려면 비밀번호를<br/>입력해주세요.';
+    confirmBtn.textContent = '삭제';
+  } else {
+    titleEl.textContent = '비밀번호 입력';
+    descEl.innerHTML = '작성 시 설정한 비밀번호를<br/>입력해주세요.';
+    confirmBtn.textContent = '확인';
+  }
+
+  modal.classList.add('active');
   setTimeout(() => input.focus(), 100);
 }
 
@@ -337,25 +338,92 @@ function closePasswordModal() {
   const modal = document.getElementById('pwd-modal');
   modal.classList.remove('active');
   currentPromptMsgId = null;
+  currentPromptAction = 'reveal';
 }
 
-function submitPasswordCheck() {
+async function submitPasswordCheck() {
   const input = document.getElementById('pwd-modal-input');
   const errorEl = document.getElementById('pwd-modal-error');
+  const editMsg = document.getElementById('pwd-modal-edit-msg');
   const pwd = input.value;
 
-  const msg = guestbookMessages.find(m => m.id === currentPromptMsgId);
+  if (!pwd) {
+    errorEl.textContent = '비밀번호를 입력해주세요.';
+    errorEl.classList.add('show');
+    return;
+  }
+
+  const msg = guestbookMessages.find(m => m.id == currentPromptMsgId);
   if (!msg) return;
 
-  if (pwd === msg.password) {
-    revealedIds.add(msg.id);
-    closePasswordModal();
-    renderMessages(guestbookMessages);
-  } else {
+  if (pwd !== msg.password) {
     errorEl.textContent = '비밀번호가 일치하지 않습니다.';
     errorEl.classList.add('show');
     input.value = '';
     input.focus();
+    return;
+  }
+
+  // --- PASSWORD CORRECT ---
+  if (currentPromptAction === 'reveal') {
+    revealedIds.add(msg.id);
+    closePasswordModal();
+    renderMessages(guestbookMessages);
+
+  } else if (currentPromptAction === 'edit') {
+    // First time: show the edit textarea
+    if (editMsg.style.display === 'none') {
+      editMsg.style.display = 'block';
+      editMsg.value = msg.message;
+      input.disabled = true;
+      editMsg.focus();
+      return; // Don't close yet, wait for second submit
+    }
+
+    // Second time: save the edit
+    const newMessage = editMsg.value.trim();
+    if (!newMessage) {
+      errorEl.textContent = '메시지를 입력해주세요.';
+      errorEl.classList.add('show');
+      return;
+    }
+
+    try {
+      const { error } = await supabaseClient
+        .from('guestbook')
+        .update({ message: newMessage })
+        .eq('id', msg.id);
+
+      if (error) throw error;
+
+      // Update locally immediately
+      msg.message = newMessage;
+      renderMessages(guestbookMessages);
+      closePasswordModal();
+      showToast('메시지가 수정되었습니다 ✏️');
+    } catch (error) {
+      console.error('Error updating message:', error);
+      showToast('수정에 실패했습니다.');
+    }
+
+  } else if (currentPromptAction === 'delete') {
+    try {
+      const { error } = await supabaseClient
+        .from('guestbook')
+        .delete()
+        .eq('id', msg.id);
+
+      if (error) throw error;
+
+      // Remove locally immediately
+      guestbookMessages = guestbookMessages.filter(m => m.id !== msg.id);
+      renderMessages(guestbookMessages);
+      closePasswordModal();
+      showToast('메시지가 삭제되었습니다 🗑️');
+    } catch (error) {
+      console.error('Error deleting message:', error);
+      showToast('삭제에 실패했습니다.');
+    }
   }
 }
 
@@ -364,7 +432,6 @@ function submitPasswordCheck() {
    UTILITY: Toast notification
    ═════════════════════════════════════════════════ */
 function showToast(message) {
-  // Remove existing toast
   const existing = document.querySelector('.toast');
   if (existing) existing.remove();
 
