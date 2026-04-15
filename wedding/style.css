@@ -29,7 +29,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
-  font-size: 16px;
+  font-size: 17px;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
 }
@@ -99,7 +99,7 @@ input, textarea { font-family: inherit; }
 
 .section-label {
   font-family: var(--font-display);
-  font-size: 0.6rem;
+  font-size: 0.72rem;
   letter-spacing: 0.4em;
   color: var(--text-muted);
   text-transform: uppercase;
@@ -109,7 +109,7 @@ input, textarea { font-family: inherit; }
 
 .section-title {
   font-family: var(--font-serif);
-  font-size: 1.15rem;
+  font-size: 1.35rem;
   font-weight: 300;
   color: var(--text-primary);
   margin-bottom: var(--sp-lg);
@@ -142,7 +142,7 @@ input, textarea { font-family: inherit; }
 
 .hero-label {
   font-family: var(--font-display);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   letter-spacing: 0.5em;
   color: var(--text-muted);
   margin-bottom: 1.2rem;
@@ -160,7 +160,7 @@ input, textarea { font-family: inherit; }
 .hero-name-groom,
 .hero-name-bride {
   font-family: var(--font-serif);
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 400;
   color: var(--text-primary);
   letter-spacing: 0.05em;
@@ -168,7 +168,7 @@ input, textarea { font-family: inherit; }
 
 .hero-and {
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   font-weight: 300;
   font-style: italic;
   color: var(--accent-warm);
@@ -194,7 +194,7 @@ input, textarea { font-family: inherit; }
 
 .hero-greeting-text {
   font-family: var(--font-serif);
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   font-weight: 300;
   color: var(--text-secondary);
   line-height: 2.2;
@@ -204,7 +204,7 @@ input, textarea { font-family: inherit; }
 
 .hero-greeting-script {
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-style: italic;
   color: var(--accent);
   font-weight: 400;
@@ -236,7 +236,7 @@ input, textarea { font-family: inherit; }
 }
 
 .family-parent {
-  font-size: 0.7rem;
+  font-size: 0.82rem;
   color: var(--text-muted);
   margin-bottom: 0.2rem;
 }
@@ -249,7 +249,7 @@ input, textarea { font-family: inherit; }
 }
 
 .family-relation {
-  font-size: 0.65rem;
+  font-size: 0.78rem;
   color: var(--text-muted);
   margin-bottom: 0.4rem;
   font-weight: 200;
@@ -257,7 +257,7 @@ input, textarea { font-family: inherit; }
 
 .family-child-name {
   font-family: var(--font-serif);
-  font-size: 1rem;
+  font-size: 1.15rem;
   font-weight: 400;
 }
 
@@ -284,17 +284,16 @@ input, textarea { font-family: inherit; }
 }
 
 .baby-scrap-frame {
-  width: 80px;
-  height: 80px;
+  width: 95px;
   background: white;
-  padding: 4px;
+  padding: 5px;
+  padding-bottom: 8px;
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1),
               0 0 0 1px rgba(0,0,0,0.04);
   transform: rotate(-3deg);
   transition: transform 0.3s ease;
   position: relative;
-  overflow: hidden;
 }
 
 .baby-scrap-frame.right {
@@ -321,9 +320,8 @@ input, textarea { font-family: inherit; }
 
 .baby-scrap-img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 25%;
+  height: auto;
+  display: block;
   border-radius: 1px;
 }
 
