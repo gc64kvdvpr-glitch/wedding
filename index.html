@@ -1,208 +1,196 @@
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
-    <meta name="description" content="우리의 결혼을 알립니다" />
-    <title>Wedding Announcement</title>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Serif+KR:wght@200;300;400;500;600&family=Noto+Sans+KR:wght@100;200;300;400;500&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="description" content="우리의 결혼을 알립니다" />
+  <title>Wedding Announcement</title>
 
-    <!-- Supabase JS CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Serif+KR:wght@200;300;400;500;600&family=Noto+Sans+KR:wght@100;200;300;400;500&display=swap"
+    rel="stylesheet" />
 
-    <link rel="stylesheet" href="wedding/style.css" />
-  </head>
-  <body>
+  <!-- Supabase JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- GRASS BACKGROUND (fixed behind everything) -->
-    <!-- ═══════════════════════════════════════════ -->
-    <div class="grass-bg" aria-hidden="true"></div>
+  <link rel="stylesheet" href="wedding/style.css" />
+</head>
 
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- MAIN CARD (white card on grass)             -->
-    <!-- ═══════════════════════════════════════════ -->
-    <main class="card-wrapper">
+<body>
 
-      <!-- HERO AREA -->
-      <section id="hero" class="card-section hero-section">
-        <p class="hero-label">WEDDING DAY</p>
-        <div class="hero-names">
-          <span class="hero-name-groom">신랑이름</span>
-          <span class="hero-and">and</span>
-          <span class="hero-name-bride">신부이름</span>
-        </div>
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- GRASS BACKGROUND (fixed behind everything) -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="grass-bg" aria-hidden="true"></div>
 
-        <div class="hero-photo-frame">
-          <img src="wedding/images/main.jpg" alt="웨딩 메인 사진" class="hero-photo" />
-        </div>
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- MAIN CARD (white card on grass)             -->
+  <!-- ═══════════════════════════════════════════ -->
+  <main class="card-wrapper">
 
-        <p class="hero-greeting-text">
-          서로 다른 길을 걸어온 두 사람이<br/>
-          이제 같은 길을 걸어가려 합니다.<br/><br/>
-          함께한 시간만큼 서로를 아끼며<br/>
-          평생을 함께하겠습니다.
-        </p>
-        <p class="hero-greeting-script">우리, 결혼합니다.</p>
-      </section>
+    <!-- HERO AREA -->
+    <section id="hero" class="card-section hero-section">
+      <p class="hero-label">WEDDING DAY</p>
+      <div class="hero-names">
+        <span class="hero-name-groom">정찬혁</span>
+        <span class="hero-and">and</span>
+        <span class="hero-name-bride">이선우</span>
+      </div>
 
-      <!-- DIVIDER -->
-      <div class="card-divider"></div>
+      <div class="hero-photo-frame">
+        <img src="wedding/images/main.jpg" alt="웨딩 메인 사진" class="hero-photo" />
+      </div>
 
-      <!-- FAMILY -->
-      <section id="family" class="card-section family-section">
-        <div class="section-label">FAMILY</div>
-        <h2 class="section-title">두 사람을 소개합니다</h2>
-        <div class="family-card">
-          <div class="family-row">
-            <div class="family-side">
-              <p class="family-parent">
-                <span class="family-parent-name">아버지 성함</span>
-                <span class="family-dot">·</span>
-                <span class="family-parent-name">어머니 성함</span>
-              </p>
-              <p class="family-relation">의 아들</p>
-              <p class="family-child-name groom">신랑 이름</p>
-            </div>
-            <div class="family-divider-v"></div>
-            <div class="family-side">
-              <p class="family-parent">
-                <span class="family-parent-name">아버지 성함</span>
-                <span class="family-dot">·</span>
-                <span class="family-parent-name">어머니 성함</span>
-              </p>
-              <p class="family-relation">의 딸</p>
-              <p class="family-child-name bride">신부 이름</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <p class="hero-greeting-text">
+        서로 다른 길을 걸어온 두 사람이<br />
+        이제 같은 길을 걸어가려 합니다.<br /><br />
+        함께한 시간만큼 서로를 아끼며<br />
+        평생을 함께하겠습니다.
+      </p>
+      <p class="hero-greeting-script">우리, 결혼합니다.</p>
+    </section>
 
-      <!-- DIVIDER -->
-      <div class="card-divider"></div>
+    <!-- DIVIDER -->
+    <div class="card-divider"></div>
 
-      <!-- BABY PHOTOS — 우리의 시작 -->
-      <section id="baby" class="card-section baby-section">
-        <div class="section-label">THE BEGINNING</div>
-        <h2 class="section-title">우리의 시작</h2>
-        <p class="baby-desc">이렇게 작았던 우리가, 만나 하나가 됩니다.</p>
-        <div class="baby-photos">
-          <div class="baby-photo-item">
-            <div class="baby-photo-frame">
-              <img src="wedding/images/baby-groom.jpg" alt="신랑 어린시절" class="baby-img" />
-            </div>
-            <p class="baby-label">신랑</p>
-          </div>
-          <div class="baby-photo-item">
-            <div class="baby-photo-frame">
-              <img src="wedding/images/baby-bride.jpg" alt="신부 어린시절" class="baby-img" />
-            </div>
-            <p class="baby-label">신부</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- DIVIDER -->
-      <div class="card-divider"></div>
-
-      <!-- GUESTBOOK -->
-      <section id="guestbook" class="card-section guestbook-section">
-        <div class="section-label">GUESTBOOK</div>
-        <h2 class="section-title">축하 메시지</h2>
-        <p class="guestbook-desc">축하의 마음을 남겨주세요</p>
-
-        <form id="guestbook-form" class="guestbook-form">
-          <div class="guestbook-form-row">
-            <input type="text" id="gb-name" class="guestbook-input" placeholder="이름" required />
-            <input type="password" id="gb-password" class="guestbook-input" placeholder="비밀번호 (수정·삭제 시 필요)" required />
-          </div>
-          <textarea id="gb-message" class="guestbook-textarea" placeholder="축하 메시지를 남겨주세요." required></textarea>
-          <div class="guestbook-form-bottom">
-            <label class="guestbook-secret-label">
-              <input type="checkbox" id="gb-secret" class="guestbook-checkbox" />
-              <span class="guestbook-secret-icon">🔒</span> 비밀글
-            </label>
-            <button type="submit" id="gb-submit" class="guestbook-submit-btn">
-              등록하기 <span class="submit-arrow">→</span>
-            </button>
-          </div>
-        </form>
-
-        <div id="guestbook-messages" class="guestbook-messages"></div>
-      </section>
-
-      <!-- DIVIDER -->
-      <div class="card-divider"></div>
-
-      <!-- ACCOUNT / GIFT -->
-      <section id="account" class="card-section account-section">
-        <div class="section-label">GIFT</div>
-        <h2 class="section-title">마음 전하기</h2>
-        <p class="account-desc">축하의 마음을 담아 축의금을 전달해 보세요.</p>
-
-        <div class="account-accordion">
-          <div class="accordion-item" id="acc-groom">
-            <button class="accordion-header" data-target="groom-accounts">
-              신랑측 계좌번호 <span class="accordion-arrow">▾</span>
-            </button>
-            <div class="accordion-body" id="groom-accounts">
-              <div class="account-row">
-                <span class="account-bank">OO은행</span>
-                <span class="account-number">000-0000-0000-00</span>
-                <span class="account-holder">예금주명</span>
-                <button class="copy-btn" data-copy="000-0000-0000-00">복사</button>
+    <!-- FAMILY -->
+    <section id="family" class="card-section family-section">
+      <div class="section-label">FAMILY</div>
+      <h2 class="section-title">두 사람을 소개합니다</h2>
+      <div class="family-card">
+        <div class="family-row">
+          <div class="family-side">
+            <p class="family-parent">
+              <span class="family-parent-name">정재원</span>
+              <span class="family-dot">·</span>
+              <span class="family-parent-name">이정미</span>
+            </p>
+            <p class="family-relation">의 아들</p>
+            <p class="family-child-name groom">정찬혁</p>
+            <!-- Scrapbook baby photo -->
+            <div class="baby-scrapbook">
+              <div class="baby-scrap-frame">
+                <img src="wedding/images/baby-groom.jpg" alt="정찬혁 어린시절" class="baby-scrap-img" />
               </div>
             </div>
           </div>
-          <div class="accordion-item" id="acc-bride">
-            <button class="accordion-header" data-target="bride-accounts">
-              신부측 계좌번호 <span class="accordion-arrow">▾</span>
-            </button>
-            <div class="accordion-body" id="bride-accounts">
-              <div class="account-row">
-                <span class="account-bank">OO은행</span>
-                <span class="account-number">000-0000-0000-00</span>
-                <span class="account-holder">예금주명</span>
-                <button class="copy-btn" data-copy="000-0000-0000-00">복사</button>
+          <div class="family-divider-v"></div>
+          <div class="family-side">
+            <p class="family-parent">
+              <span class="family-parent-name">이광재</span>
+              <span class="family-dot">·</span>
+              <span class="family-parent-name">봉영선</span>
+            </p>
+            <p class="family-relation">의 딸</p>
+            <p class="family-child-name bride">이선우</p>
+            <!-- Scrapbook baby photo -->
+            <div class="baby-scrapbook">
+              <div class="baby-scrap-frame right">
+                <img src="wedding/images/baby-bride.jpg" alt="이선우 어린시절" class="baby-scrap-img" />
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <!-- FOOTER -->
-      <footer class="card-footer">
-        <p class="footer-names">신랑이름 &amp; 신부이름</p>
-        <p class="footer-date">0000. 00. 00</p>
-      </footer>
-
-    </main>
-
-    <!-- Password Modal -->
-    <div class="pwd-modal-overlay" id="pwd-modal">
-      <div class="pwd-modal">
-        <h3 class="pwd-modal-title" id="pwd-modal-title">비밀번호 입력</h3>
-        <p class="pwd-modal-desc" id="pwd-modal-desc">작성 시 설정한 비밀번호를<br/>입력해주세요.</p>
-        <input type="password" id="pwd-modal-input" class="pwd-modal-input" placeholder="비밀번호" />
-        <p class="pwd-modal-error" id="pwd-modal-error"></p>
-        <textarea id="pwd-modal-edit-msg" class="pwd-modal-edit-msg" placeholder="수정할 메시지를 입력하세요" style="display:none;"></textarea>
-        <div class="pwd-modal-buttons">
-          <button type="button" class="pwd-modal-btn cancel" id="pwd-modal-cancel">취소</button>
-          <button type="button" class="pwd-modal-btn confirm" id="pwd-modal-confirm">확인</button>
         </div>
       </div>
-    </div>
+    </section>
 
-    <script src="wedding/script.js"></script>
-  </body>
+    <!-- DIVIDER -->
+    <div class="card-divider"></div>
+
+    <!-- GUESTBOOK -->
+    <section id="guestbook" class="card-section guestbook-section">
+      <div class="section-label">GUESTBOOK</div>
+      <h2 class="section-title">축하 메시지</h2>
+      <p class="guestbook-desc">축하의 마음을 남겨주세요</p>
+
+      <form id="guestbook-form" class="guestbook-form">
+        <div class="guestbook-form-row">
+          <input type="text" id="gb-name" class="guestbook-input" placeholder="이름" required />
+          <input type="password" id="gb-password" class="guestbook-input" placeholder="비밀번호 (수정·삭제 시 필요)" required />
+        </div>
+        <textarea id="gb-message" class="guestbook-textarea" placeholder="축하 메시지를 남겨주세요." required></textarea>
+        <div class="guestbook-form-bottom">
+          <label class="guestbook-secret-label">
+            <input type="checkbox" id="gb-secret" class="guestbook-checkbox" />
+            <span class="guestbook-secret-icon">🔒</span> 비밀글
+          </label>
+          <button type="submit" id="gb-submit" class="guestbook-submit-btn">
+            등록하기 <span class="submit-arrow">→</span>
+          </button>
+        </div>
+      </form>
+
+      <div id="guestbook-messages" class="guestbook-messages"></div>
+    </section>
+
+    <!-- DIVIDER -->
+    <div class="card-divider"></div>
+
+    <!-- ACCOUNT / GIFT -->
+    <section id="account" class="card-section account-section">
+      <div class="section-label">GIFT</div>
+      <h2 class="section-title">마음 전하기</h2>
+      <p class="account-desc">축하의 마음을 담아 축의금을 전달해 보세요.</p>
+
+      <div class="account-accordion">
+        <div class="accordion-item" id="acc-groom">
+          <button class="accordion-header" data-target="groom-accounts">
+            신랑측 계좌번호 <span class="accordion-arrow">▾</span>
+          </button>
+          <div class="accordion-body" id="groom-accounts">
+            <div class="account-row">
+              <span class="account-bank">OO은행</span>
+              <span class="account-number">000-0000-0000-00</span>
+              <span class="account-holder">예금주명</span>
+              <button class="copy-btn" data-copy="000-0000-0000-00">복사</button>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item" id="acc-bride">
+          <button class="accordion-header" data-target="bride-accounts">
+            신부측 계좌번호 <span class="accordion-arrow">▾</span>
+          </button>
+          <div class="accordion-body" id="bride-accounts">
+            <div class="account-row">
+              <span class="account-bank">OO은행</span>
+              <span class="account-number">000-0000-0000-00</span>
+              <span class="account-holder">예금주명</span>
+              <button class="copy-btn" data-copy="000-0000-0000-00">복사</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="card-footer">
+      <p class="footer-names">신랑이름 &amp; 신부이름</p>
+      <p class="footer-date">0000. 00. 00</p>
+    </footer>
+
+  </main>
+
+  <!-- Password Modal -->
+  <div class="pwd-modal-overlay" id="pwd-modal">
+    <div class="pwd-modal">
+      <h3 class="pwd-modal-title" id="pwd-modal-title">비밀번호 입력</h3>
+      <p class="pwd-modal-desc" id="pwd-modal-desc">작성 시 설정한 비밀번호를<br />입력해주세요.</p>
+      <input type="password" id="pwd-modal-input" class="pwd-modal-input" placeholder="비밀번호" />
+      <p class="pwd-modal-error" id="pwd-modal-error"></p>
+      <textarea id="pwd-modal-edit-msg" class="pwd-modal-edit-msg" placeholder="수정할 메시지를 입력하세요"
+        style="display:none;"></textarea>
+      <div class="pwd-modal-buttons">
+        <button type="button" class="pwd-modal-btn cancel" id="pwd-modal-cancel">취소</button>
+        <button type="button" class="pwd-modal-btn confirm" id="pwd-modal-confirm">확인</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="wedding/script.js"></script>
+</body>
+
 </html>
