@@ -254,7 +254,7 @@ input, textarea { font-family: inherit; }
   font-family: var(--font-serif);
   font-weight: 400;
   color: var(--inner-text-primary);
-  font-size: 1.15rem;
+  font-size: 1.05rem;
 }
 
 .family-dot {
@@ -271,7 +271,7 @@ input, textarea { font-family: inherit; }
 
 .family-child-name {
   font-family: var(--font-serif);
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   color: var(--inner-text-primary);
   font-weight: 400;
 }
