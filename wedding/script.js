@@ -179,19 +179,20 @@ function renderMessages(messages) {
 
   container.innerHTML = pageMessages.map(msg => {
     const isHidden = msg.is_secret && !revealedIds.has(msg.id);
-    const dateStr = msg.created_at
-      ? new Date(msg.created_at).toLocaleDateString('ko-KR', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\. /g, '.').replace(/\.$/, '')
-      : '방금 전';
+    let dateStr = '방금 전';
+    if (msg.created_at) {
+      const d = new Date(msg.created_at);
+      dateStr = `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
+    }
 
     return `
       <div class="guestbook-card ${isHidden ? 'secret' : ''}" data-msg-id="${msg.id}">
         <div class="guestbook-card-header">
           <span class="guestbook-card-name">
-            ${escapeHtml(msg.name)}
+            ${escapeHtml(msg.name)} <span class="guestbook-card-date-inline">${dateStr}</span>
             ${msg.is_secret ? (isHidden ? '<span class="secret-icon">🔒</span>' : '<span class="secret-icon unlocked">🔓</span>') : ''}
           </span>
           <div class="guestbook-card-actions">
-            <span class="guestbook-card-date">${dateStr}</span>
             <button class="gb-action-btn gb-edit-btn" data-action="edit" data-id="${msg.id}" title="수정">✎</button>
             <button class="gb-action-btn gb-delete-btn" data-action="delete" data-id="${msg.id}" title="삭제">✕</button>
           </div>
