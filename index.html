@@ -95,7 +95,6 @@
             </div>
           </div>
         </div>
-      </div>
     </section>
 
     <!-- DIVIDER -->
@@ -110,15 +109,15 @@
       <form id="guestbook-form" class="guestbook-form">
         <div class="guestbook-form-row">
           <input type="text" id="gb-name" class="guestbook-input" placeholder="이름" required />
-        </div>
-        <div class="guestbook-form-row">
           <input type="password" id="gb-password" class="guestbook-input" placeholder="비밀번호 (수정·삭제 시 필요)" required />
         </div>
         <textarea id="gb-message" class="guestbook-textarea" placeholder="축하 메시지를 남겨주세요." required></textarea>
         <div class="guestbook-form-bottom">
           <label class="guestbook-secret-label">
             <input type="checkbox" id="gb-secret" class="guestbook-checkbox" />
-            <span class="guestbook-secret-icon">🔒</span> 비밀글
+            <span class="guestbook-secret-toggle">
+              <span class="guestbook-secret-icon">🔒</span> 비밀글
+            </span>
           </label>
           <button type="submit" id="gb-submit" class="guestbook-submit-btn">
             등록하기 <span class="submit-arrow">→</span>
@@ -171,8 +170,8 @@
 
     <!-- FOOTER -->
     <footer class="card-footer">
-      <p class="footer-names">신랑이름 &amp; 신부이름</p>
-      <p class="footer-date">0000. 00. 00</p>
+      <p class="footer-names">정찬혁 &amp; 이선우</p>
+      <p class="footer-date">2026. 4. 22</p>
     </footer>
 
   </main>

@@ -5,13 +5,13 @@
 /* ── Design Tokens ────────────────────────────── */
 :root {
   --card-bg:      #FDFCF8;
-  --text-primary: #2D3A28;
-  --text-secondary: #4A5A42;
-  --text-muted:   #8A9480;
-  --accent:       #4A5A3A;
-  --accent-warm:  #7A8A5A;
+  --text-primary: #1C2417;
+  --text-secondary: #3B4A34;
+  --text-muted:   #707C66;
+  --accent:       #3B4A2D;
+  --accent-warm:  #68754D;
   --gold:         #8A7A4A;
-  --border:       rgba(74,90,58,0.1);
+  --border:       rgba(74,90,58,0.15);
   --divider:      rgba(74,90,58,0.12);
 
   --font-display: 'Cormorant Garamond', serif;
@@ -36,7 +36,7 @@ html {
 
 body {
   font-family: var(--font-sans);
-  font-weight: 300;
+  font-weight: 400;
   color: var(--text-primary);
   background: #2D3A28;
   line-height: 1.7;
@@ -110,7 +110,7 @@ input, textarea { font-family: inherit; }
 .section-title {
   font-family: var(--font-serif);
   font-size: 1.35rem;
-  font-weight: 300;
+  font-weight: 400;
   color: var(--text-primary);
   margin-bottom: var(--sp-lg);
   letter-spacing: -0.01em;
@@ -406,21 +406,40 @@ input, textarea { font-family: inherit; }
 .guestbook-secret-label {
   display: flex;
   align-items: center;
-  gap: 0.2rem;
-  font-size: 0.7rem;
-  color: var(--text-muted);
   cursor: pointer;
 }
 
 .guestbook-checkbox { display: none; }
 
-.guestbook-secret-icon {
-  font-size: 0.75rem;
-  opacity: 0.5;
-  transition: opacity 0.2s;
+.guestbook-secret-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  padding: 0.35rem 0.7rem;
+  border-radius: 20px;
+  background: rgba(74,90,58,0.05);
+  border: 1px solid var(--border);
+  transition: all 0.2s ease;
 }
 
-.guestbook-checkbox:checked + .guestbook-secret-icon { opacity: 1; }
+.guestbook-secret-icon {
+  font-size: 0.75rem;
+  transition: transform 0.2s;
+}
+
+.guestbook-checkbox:checked + .guestbook-secret-toggle {
+  background: white;
+  border-color: var(--gold);
+  color: var(--gold);
+  box-shadow: 0 2px 6px rgba(138, 122, 74, 0.15);
+  font-weight: 500;
+}
+
+.guestbook-checkbox:checked + .guestbook-secret-toggle .guestbook-secret-icon {
+  transform: scale(1.1);
+}
 
 .guestbook-submit-btn {
   background: var(--accent);
