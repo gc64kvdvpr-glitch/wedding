@@ -16,7 +16,18 @@ document.addEventListener('DOMContentLoaded', () => {
   initAccordion();
   initCopyButtons();
   initGuestbook();
+  checkGiftVisibility();
 });
+
+function checkGiftVisibility() {
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('gift') === 'no') {
+    const accountSection = document.getElementById('account');
+    const accountDivider = document.getElementById('account-divider');
+    if (accountSection) accountSection.style.display = 'none';
+    if (accountDivider) accountDivider.style.display = 'none';
+  }
+}
 
 
 /* ═════════════════════════════════════════════════
