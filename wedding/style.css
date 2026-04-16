@@ -28,8 +28,8 @@
   --sp-xs: 0.5rem;
   --sp-sm: 1rem;
   --sp-md: 1.5rem;
-  --sp-lg: 2.5rem;
-  --sp-xl: 4rem;
+  --sp-lg: 1.8rem;
+  --sp-xl: 2.5rem;
 }
 
 /* ── Reset ─────────────────────────────────────── */
@@ -99,7 +99,7 @@ input, textarea { font-family: inherit; }
 
 .card-divider {
   width: 1px;
-  height: 40px;
+  height: 30px;
   background: var(--divider);
   margin: 0 auto;
 }
@@ -149,7 +149,7 @@ input, textarea { font-family: inherit; }
 
 .hero-label {
   font-family: var(--font-display);
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   letter-spacing: 0.5em;
   color: var(--text-muted);
   margin-bottom: 1.2rem;
