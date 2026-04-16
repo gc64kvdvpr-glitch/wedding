@@ -17,6 +17,9 @@
   <!-- Supabase JS CDN -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 
+  <!-- Preload Main Image -->
+  <link rel="preload" as="image" href="wedding/images/main.jpg" fetchpriority="high" />
+  
   <link rel="stylesheet" href="wedding/style.css" />
 </head>
 
@@ -42,7 +45,7 @@
       </div>
 
       <div class="hero-photo-frame">
-        <img src="wedding/images/main.jpg" alt="웨딩 메인 사진" class="hero-photo" />
+        <img src="wedding/images/main.jpg" alt="웨딩 메인 사진" class="hero-photo" fetchpriority="high" decoding="sync" />
       </div>
 
       <p class="hero-greeting-text">
@@ -79,7 +82,7 @@
             <!-- Scrapbook baby photo -->
             <div class="baby-scrapbook">
               <div class="baby-scrap-frame">
-                <img src="wedding/images/baby-groom.jpg" alt="정찬혁 어린시절" class="baby-scrap-img" />
+                <img src="wedding/images/baby-groom.jpg" alt="정찬혁 어린시절" class="baby-scrap-img" loading="lazy" decoding="async" />
               </div>
             </div>
           </div>
@@ -98,7 +101,7 @@
             <!-- Scrapbook baby photo -->
             <div class="baby-scrapbook">
               <div class="baby-scrap-frame right">
-                <img src="wedding/images/baby-bride.jpg" alt="이선우 어린시절" class="baby-scrap-img" />
+                <img src="wedding/images/baby-bride.jpg" alt="이선우 어린시절" class="baby-scrap-img" loading="lazy" decoding="async" />
               </div>
             </div>
           </div>
