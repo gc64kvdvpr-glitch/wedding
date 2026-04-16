@@ -424,10 +424,8 @@ input, textarea { font-family: inherit; }
   transition: all 0.2s ease;
 }
 
-.guestbook-secret-icon {
-  font-size: 0.75rem;
-  transition: transform 0.2s;
-}
+.gb-status-off { display: inline; }
+.gb-status-on { display: none; }
 
 .guestbook-checkbox:checked + .guestbook-secret-toggle {
   background: white;
@@ -437,8 +435,12 @@ input, textarea { font-family: inherit; }
   font-weight: 500;
 }
 
-.guestbook-checkbox:checked + .guestbook-secret-toggle .guestbook-secret-icon {
-  transform: scale(1.1);
+.guestbook-checkbox:checked + .guestbook-secret-toggle .gb-status-off {
+  display: none;
+}
+
+.guestbook-checkbox:checked + .guestbook-secret-toggle .gb-status-on {
+  display: inline;
 }
 
 .guestbook-submit-btn {
