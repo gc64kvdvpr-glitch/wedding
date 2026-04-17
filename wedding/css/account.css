@@ -1,0 +1,108 @@
+/* ═══════════════════════════════════════════════
+   ACCOUNT / GIFT Section
+   ═══════════════════════════════════════════════ */
+.account-section {
+  background: var(--card-bg);
+}
+
+.account-desc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: -1.5rem;
+  margin-bottom: var(--sp-md);
+}
+
+.account-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.accordion-item {
+  background: var(--card-inner);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--accent);
+}
+
+.accordion-header {
+  width: 100%;
+  padding: 0.8rem var(--sp-sm);
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--inner-text-primary);
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s;
+}
+
+.accordion-header:hover { background: rgba(74,90,58,0.07); }
+
+.accordion-arrow {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  transition: transform 0.3s;
+}
+
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.accordion-body.open { max-height: 200px; }
+
+.account-row {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.4rem var(--sp-sm) 0.8rem;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  /* Removed overflow-x so no scrollbar */
+}
+
+.account-bank {
+  font-size: 0.65rem;
+  color: var(--inner-text-muted);
+  font-weight: 400;
+}
+
+.account-number {
+  font-size: 0.7rem;
+  color: var(--inner-text-primary);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.account-holder {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.copy-btn {
+  font-size: 0.6rem;
+  padding: 0.15rem 0.4rem;
+  border: 1px solid var(--inner-border);
+  border-radius: 4px;
+  color: var(--accent);
+  background: transparent;
+  transition: all 0.2s;
+  margin-left: auto;
+}
+
+.copy-btn:hover {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.copy-btn.copied {
+  background: var(--gold);
+  color: white;
+  border-color: var(--gold);
+}
+
+

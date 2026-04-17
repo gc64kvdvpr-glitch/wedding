@@ -1,0 +1,141 @@
+/* ═══════════════════════════════════════════════
+   WEDDING ANNOUNCEMENT — v3 Grass & Card
+   ═══════════════════════════════════════════════ */
+
+/* ── Design Tokens ────────────────────────────── */
+:root {
+  --card-bg:      #2a3022;
+  --card-inner:   #f4efeb;
+  --text-primary: #e8e5dc;
+  --text-secondary: #c9c4b5;
+  --text-muted:   #9fa693;
+  
+  --inner-text-primary: #1c2417;
+  --inner-text-secondary: #3b4a34;
+  --inner-text-muted: #707c66;
+
+  --accent:       #b9a881;
+  --accent-warm:  #d1c29e;
+  --gold:         #b9a881;
+  --border:       rgba(232,229,220,0.15);
+  --divider:      rgba(232,229,220,0.12);
+  --inner-border: rgba(28,36,23,0.15);
+
+  --font-display: 'Cormorant Garamond', serif;
+  --font-serif:   'Gowun Batang', 'Noto Serif KR', serif;
+  --font-sans:    'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+
+  --sp-xs: 0.5rem;
+  --sp-sm: 1rem;
+  --sp-md: 1.5rem;
+  --sp-lg: 1.8rem;
+  --sp-xl: 2.5rem;
+}
+
+/* ── Reset ─────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 17px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  color: var(--text-primary);
+  background: #2D3A28;
+  line-height: 1.7;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+img { max-width: 100%; display: block; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+input, textarea { font-family: inherit; }
+
+
+/* ═══════════════════════════════════════════════
+   GRASS BACKGROUND
+   ═══════════════════════════════════════════════ */
+.grass-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: url('../images/grass-bg.png') center / cover no-repeat;
+  /* Darken slightly for contrast */
+  filter: brightness(0.7) saturate(1.1);
+}
+
+
+/* ═══════════════════════════════════════════════
+   MAIN CARD WRAPPER
+   ═══════════════════════════════════════════════ */
+.card-wrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 420px;
+  margin: 3rem auto;
+  background: var(--card-bg);
+  border-radius: 4px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+  overflow-x: hidden;
+}
+
+@media (max-width: 460px) {
+  .card-wrapper {
+    margin: 1.5rem 1rem;
+    border-radius: 4px;
+  }
+}
+
+
+/* ── Card Sections ─────────────────────────────── */
+.card-section {
+  padding: var(--sp-xl) var(--sp-lg);
+  text-align: center;
+}
+
+.card-divider {
+  width: 1px;
+  height: 30px;
+  background: var(--divider);
+  margin: 0 auto;
+}
+
+.section-label {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.4em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+  font-weight: 400;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+  margin-bottom: var(--sp-lg);
+  line-height: 1.2;
+}
+
+
+/* ── Scroll Animations ────────────────────────── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1),
+              transform 0.7s cubic-bezier(0.22,1,0.36,1);
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+

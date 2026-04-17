@@ -1,0 +1,124 @@
+/* ═══════════════════════════════════════════════
+   FAMILY Section
+   ═══════════════════════════════════════════════ */
+.family-section {
+  background: var(--card-bg);
+}
+
+.family-card {
+  background: var(--card-inner);
+  border-radius: 16px;
+  padding: var(--sp-md) var(--sp-sm);
+  overflow: hidden;
+  border: 1px solid var(--accent);
+}
+
+.family-row {
+  display: flex;
+  align-items: flex-start;
+}
+
+.family-side {
+  flex: 1;
+  text-align: center;
+}
+
+.family-parent {
+  font-size: 0.98rem;
+  color: var(--inner-text-muted);
+  margin-bottom: 0.2rem;
+}
+
+.family-parent-name {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  color: var(--inner-text-primary);
+  font-size: 1.05rem;
+}
+
+.family-dot {
+  margin: 0 0.1rem;
+  color: var(--inner-border);
+}
+
+.family-relation {
+  font-size: 0.9rem;
+  color: var(--inner-text-muted);
+  margin-bottom: 0.4rem;
+  font-weight: 200;
+}
+
+.family-child-name {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: var(--inner-text-primary);
+  font-weight: 400;
+}
+
+.family-child-name.groom { color: var(--inner-text-primary); }
+.family-child-name.bride { color: var(--inner-text-primary); }
+
+.family-divider-v {
+  width: 1px;
+  height: 56px;
+  background: var(--inner-border);
+  align-self: flex-start;
+  margin: 0 0.5rem;
+  margin-top: 0.5rem;
+}
+
+
+/* ═══════════════════════════════════════════════
+   BABY SCRAPBOOK (inside Family section)
+   ═══════════════════════════════════════════════ */
+.baby-scrapbook {
+  margin-top: 0.8rem;
+  display: flex;
+  justify-content: center;
+}
+
+.baby-scrap-frame {
+  width: 85%;
+  max-width: 120px;
+  background: white;
+  padding: 5px;
+  padding-bottom: 8px;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1),
+              0 0 0 1px rgba(0,0,0,0.04);
+  transform: rotate(-3deg);
+  transition: transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.baby-scrap-frame.right {
+  transform: rotate(3deg);
+}
+
+.baby-scrap-frame:hover {
+  transform: rotate(0deg) scale(1.08);
+}
+
+/* Tape decoration */
+.baby-scrap-frame::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 10px;
+  background: rgba(200,210,180,0.6);
+  z-index: 2;
+  border-radius: 1px;
+}
+
+.baby-scrap-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 1px;
+}
+
+
