@@ -22,8 +22,8 @@
   --inner-border: rgba(28,36,23,0.15);
 
   --font-display: 'Cormorant Garamond', serif;
-  --font-serif:   'Noto Serif KR', serif;
-  --font-sans:    'Noto Sans KR', sans-serif;
+  --font-serif:   'Gowun Batang', 'Noto Serif KR', serif;
+  --font-sans:    'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
 
   --sp-xs: 0.5rem;
   --sp-sm: 1rem;
