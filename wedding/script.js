@@ -6,8 +6,8 @@ import './style.css';
 import { createClient } from '@supabase/supabase-js';
 
 /* ── Supabase Configuration ─────────────────── */
-const SUPABASE_URL = 'https://pgrlcwuurllnofoxlseu.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBncmxjd3V1cmxsbm9mb3hsc2V1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwMDQ5OTUsImV4cCI6MjA4ODU4MDk5NX0.nJ8kOhAW0kAISWC2upVclPHwNzydXFvgPJsy_YiiFlI';
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
+const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 let supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
