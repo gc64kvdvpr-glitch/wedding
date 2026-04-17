@@ -157,48 +157,28 @@ input, textarea { font-family: inherit; }
 
 .hero-names {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.8rem;
-  margin-bottom: var(--sp-xl);
-}
-
-.hero-name-en {
-  font-family: var(--font-display);
-  font-size: 2.8rem;
-  font-style: italic;
-  font-weight: 400;
-  color: var(--accent);
-  line-height: 1;
-  letter-spacing: 0.02em;
-}
-
-.hero-and-en {
-  font-size: 2.2rem;
-  color: var(--accent-warm);
-  font-weight: 300;
-  margin: 0 0.1rem;
-}
-
-.hero-name-kr {
-  display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: center;
-  gap: 0.6rem;
+  gap: 0.8rem;
+  margin-bottom: var(--sp-lg);
+  flex-wrap: wrap;
 }
 
 .hero-name-groom,
 .hero-name-bride {
   font-family: var(--font-serif);
-  font-size: 1.1rem;
+  font-size: 2.1rem;
   font-weight: 400;
-  color: var(--text-secondary);
-  letter-spacing: 0.15em;
+  color: var(--text-primary);
+  letter-spacing: 0.1em;
 }
 
 .hero-and {
-  font-size: 1rem;
-  color: var(--text-muted);
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--accent-warm);
 }
 
 /* Main photo — enlarged */
