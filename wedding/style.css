@@ -183,13 +183,13 @@ input, textarea { font-family: inherit; }
 
 /* Main photo — enlarged */
 .hero-photo-frame {
-  width: 70%;
-  max-width: 280px;
+  width: 85%;
+  max-width: 340px;
   margin: 0 auto var(--sp-lg);
   aspect-ratio: 4 / 5;
   overflow: hidden;
   border: none;
-  box-shadow: 0 3px 16px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
 }
 
 .hero-photo {
