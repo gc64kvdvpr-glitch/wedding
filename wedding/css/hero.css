@@ -26,21 +26,21 @@
 .hero-name-groom,
 .hero-name-bride {
   font-family: var(--font-serif);
-  font-size: 2.1rem;
+  font-size: 2.2rem;
   font-weight: 400;
   color: var(--text-primary);
   letter-spacing: 0.1em;
 }
 
 .hero-and {
-  font-family: var(--font-display);
-  font-size: 1.6rem;
-  font-weight: 300;
-  font-style: italic;
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 400;
   color: var(--accent-warm);
+  margin: 0 0.5rem;
 }
 
-/* Main photo — enlarged */
+/* Main photo — enlarged & slideshow */
 .hero-photo-frame {
   width: 85%;
   max-width: 340px;
@@ -48,7 +48,9 @@
   aspect-ratio: 4 / 5;
   overflow: hidden;
   border: none;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 25px rgba(0,0,0,0.12); /* Slightly softer shadow */
+  position: relative;
+  border-radius: 4px; /* Optional: subtle rounding */
 }
 
 .hero-photo {
@@ -56,6 +58,30 @@
   height: 100%;
   object-fit: cover;
   object-position: center 20%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Slideshow Animations - Static images with smooth cross-fade */
+.slide-1 {
+  animation: slideshow1 10s infinite;
+}
+
+.slide-2 {
+  animation: slideshow2 10s infinite;
+}
+
+@keyframes slideshow1 {
+  0%, 45% { opacity: 1; z-index: 2; }
+  50%, 95% { opacity: 0; z-index: 1; }
+  100% { opacity: 1; z-index: 2; }
+}
+
+@keyframes slideshow2 {
+  0%, 45% { opacity: 0; z-index: 1; }
+  50%, 95% { opacity: 1; z-index: 2; }
+  100% { opacity: 0; z-index: 1; }
 }
 
 .hero-greeting-text {

@@ -11,16 +11,20 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="정찬혁 🤍 이선우 결혼합니다" />
   <meta property="og:description" content="소중한 부부의 연을 맺게 되었습니다. 따뜻한 마음으로 축복해 주세요." />
-  <meta property="og:image" content="https://gc64kvdvpr-glitch.github.io/wedding/wedding/images/main.jpg" />
+  <meta property="og:image" content="https://gc64kvdvpr-glitch.github.io/wedding/wedding/images/main1.jpeg" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Gowun+Batang:wght@400;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
 
   <!-- Preload Main Image -->
-  <link rel="preload" as="image" href="wedding/images/main.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="wedding/images/main1.jpeg" fetchpriority="high" />
+  <link rel="preload" as="image" href="wedding/images/main2.jpeg" fetchpriority="high" />
 </head>
 
 <body>
@@ -44,8 +48,10 @@
         <span class="hero-name-bride">이선우</span>
       </div>
 
-      <div class="hero-photo-frame">
-        <img src="wedding/images/main.jpg" alt="웨딩 메인 사진" class="hero-photo" fetchpriority="high" decoding="sync" />
+      <div class="hero-photo-frame slideshow">
+        <img src="wedding/images/main1.jpeg" alt="웨딩 메인 사진 1" class="hero-photo slide-1" fetchpriority="high"
+          decoding="sync" />
+        <img src="wedding/images/main2.jpeg" alt="웨딩 메인 사진 2" class="hero-photo slide-2" decoding="async" />
       </div>
 
       <p class="hero-greeting-text">
@@ -64,43 +70,51 @@
     <!-- FAMILY -->
     <section id="family" class="card-section family-section">
       <h2 class="section-title">Our Family</h2>
-      <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: -1.5rem; margin-bottom: 1.5rem; font-weight: 200;">두 사람을 소개합니다</p>
+      <p
+        style="font-size: 0.8rem; color: var(--text-secondary); margin-top: -1.5rem; margin-bottom: 1.5rem; font-weight: 200;">
+        두 사람을 소개합니다</p>
       <div class="family-card">
         <div class="family-row">
           <div class="family-side">
-            <p class="family-parent" style="display:flex; align-items:baseline; justify-content:center; gap:0.1rem; margin-bottom:0.2rem; flex-wrap:nowrap; white-space:nowrap; letter-spacing:-0.02em;">
+            <p class="family-parent"
+              style="display:flex; align-items:baseline; justify-content:center; gap:0.1rem; margin-bottom:0.2rem; flex-wrap:nowrap; white-space:nowrap; letter-spacing:-0.02em;">
               <span class="family-parent-name">정재원</span>
               <span class="family-dot">·</span>
               <span class="family-parent-name">이정미</span>
               <span class="family-relation">의</span>
             </p>
-            <p class="family-child-row" style="display:flex; align-items:baseline; justify-content:center; gap:0.2rem; flex-wrap:nowrap; white-space:nowrap;">
+            <p class="family-child-row"
+              style="display:flex; align-items:baseline; justify-content:center; gap:0.2rem; flex-wrap:nowrap; white-space:nowrap;">
               <span class="family-relation">아들</span>
               <span class="family-child-name groom">&nbsp;정찬혁</span>
             </p>
             <!-- Scrapbook baby photo -->
             <div class="baby-scrapbook">
               <div class="baby-scrap-frame">
-                <img src="wedding/images/baby-groom.jpg" alt="정찬혁 어린시절" class="baby-scrap-img" loading="lazy" decoding="async" />
+                <img src="wedding/images/baby-groom.jpg" alt="정찬혁 어린시절" class="baby-scrap-img" loading="lazy"
+                  decoding="async" />
               </div>
             </div>
           </div>
           <div class="family-divider-v"></div>
           <div class="family-side">
-            <p class="family-parent" style="display:flex; align-items:baseline; justify-content:center; gap:0.1rem; margin-bottom:0.2rem; flex-wrap:nowrap; white-space:nowrap; letter-spacing:-0.02em;">
+            <p class="family-parent"
+              style="display:flex; align-items:baseline; justify-content:center; gap:0.1rem; margin-bottom:0.2rem; flex-wrap:nowrap; white-space:nowrap; letter-spacing:-0.02em;">
               <span class="family-parent-name">이광재</span>
               <span class="family-dot">·</span>
               <span class="family-parent-name">봉영선</span>
               <span class="family-relation">의</span>
             </p>
-            <p class="family-child-row" style="display:flex; align-items:baseline; justify-content:center; gap:0.2rem; flex-wrap:nowrap; white-space:nowrap;">
+            <p class="family-child-row"
+              style="display:flex; align-items:baseline; justify-content:center; gap:0.2rem; flex-wrap:nowrap; white-space:nowrap;">
               <span class="family-relation">딸</span>
               <span class="family-child-name bride">&nbsp;이선우</span>
             </p>
             <!-- Scrapbook baby photo -->
             <div class="baby-scrapbook">
               <div class="baby-scrap-frame right">
-                <img src="wedding/images/baby-bride.jpg" alt="이선우 어린시절" class="baby-scrap-img" loading="lazy" decoding="async" />
+                <img src="wedding/images/baby-bride.jpg" alt="이선우 어린시절" class="baby-scrap-img" loading="lazy"
+                  decoding="async" />
               </div>
             </div>
           </div>
@@ -168,11 +182,11 @@
           </button>
           <div class="accordion-body" id="bride-accounts">
             <div class="account-row">
-              <span class="account-bank">OO은행</span>
-              <span class="account-number">000-0000-0000-00</span>
+              <span class="account-bank">국민은행</span>
+              <span class="account-number">712401-01-172424</span>
               <span class="account-bank" style="margin-left: 0.2rem;">예금주명</span>
               <span class="account-number">이선우</span>
-              <button class="copy-btn" data-copy="000-0000-0000-00">복사</button>
+              <button class="copy-btn" data-copy="712401-01-172424">복사</button>
             </div>
           </div>
         </div>
