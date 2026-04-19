@@ -22,10 +22,17 @@ document.addEventListener('DOMContentLoaded', () => {
 function checkGiftVisibility() {
   const urlParams = new URLSearchParams(window.location.search);
   if (urlParams.get('gift') === 'no') {
+    // 1. Hide account section
     const accountSection = document.getElementById('account');
     const accountDivider = document.getElementById('account-divider');
     if (accountSection) accountSection.style.display = 'none';
     if (accountDivider) accountDivider.style.display = 'none';
+
+    // 2. Change footer date for specific version
+    const footerDate = document.querySelector('.footer-date');
+    if (footerDate) {
+      footerDate.textContent = '2026. 4. 18.';
+    }
   }
 }
 
