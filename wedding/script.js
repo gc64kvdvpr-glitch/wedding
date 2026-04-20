@@ -33,6 +33,10 @@ function checkGiftVisibility() {
     if (footerDate) {
       footerDate.textContent = '2026. 4. 18.';
     }
+
+    // 3. Hide hero date (only shown for account-visible version)
+    const heroDate = document.getElementById('hero-date');
+    if (heroDate) heroDate.style.display = 'none';
   }
 }
 

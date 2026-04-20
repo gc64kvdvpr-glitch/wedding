@@ -8,7 +8,7 @@
 
 .footer-names {
   font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-size: 16px;
   letter-spacing: 0.15em;
   color: var(--accent);
   font-weight: 400;
@@ -16,7 +16,7 @@
 }
 
 .footer-date {
-  font-size: 0.65rem;
+  font-size: 11px;
   color: var(--text-muted);
   letter-spacing: 0.2em;
 }
@@ -60,14 +60,14 @@
 
 .pwd-modal-title {
   font-family: var(--font-serif);
-  font-size: 0.95rem;
+  font-size: 16px;
   font-weight: 400;
   margin-bottom: 0.4rem;
   color: var(--text-primary);
 }
 
 .pwd-modal-desc {
-  font-size: 0.72rem;
+  font-size: 12px;
   color: var(--text-muted);
   line-height: 1.5;
   margin-bottom: var(--sp-sm);
@@ -78,7 +78,7 @@
   border: 1px solid var(--border);
   border-radius: 6px;
   padding: 0.55rem 0.7rem;
-  font-size: 0.8rem;
+  font-size: 14px;
   text-align: center;
   outline: none;
   background: rgba(74,90,58,0.04);
@@ -92,7 +92,7 @@
   border: 1px solid var(--border);
   border-radius: 6px;
   padding: 0.55rem 0.7rem;
-  font-size: 0.75rem;
+  font-size: 13px;
   color: var(--text-primary);
   background: rgba(74,90,58,0.04);
   resize: none;
@@ -105,7 +105,7 @@
 .pwd-modal-edit-msg:focus { border-color: var(--accent); }
 
 .pwd-modal-error {
-  font-size: 0.7rem;
+  font-size: 12px;
   color: #B56B63;
   margin-top: 0.3rem;
   min-height: 1rem;
@@ -125,7 +125,7 @@
   flex: 1;
   padding: 0.5rem;
   border-radius: 6px;
-  font-size: 0.8rem;
+  font-size: 14px;
   transition: all 0.2s;
 }
 
@@ -161,7 +161,7 @@
   color: var(--card-inner);
   padding: 0.7rem 1.4rem;
   border-radius: 30px;
-  font-size: 0.85rem;
+  font-size: 14px;
   font-weight: 400;
   z-index: 9999;
   opacity: 0;
