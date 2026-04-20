@@ -8,7 +8,7 @@
 
 .hero-label {
   font-family: var(--font-display);
-  font-size: 15px;
+  font-size: 0.9rem;
   letter-spacing: 0.5em;
   color: var(--text-muted);
   margin-bottom: 1.2rem;
@@ -26,7 +26,7 @@
 .hero-name-groom,
 .hero-name-bride {
   font-family: var(--font-serif);
-  font-size: 37px;
+  font-size: 2.2rem;
   font-weight: 400;
   color: var(--text-primary);
   letter-spacing: 0.1em;
@@ -34,7 +34,7 @@
 
 .hero-and {
   font-family: var(--font-serif);
-  font-size: 24px;
+  font-size: 1.4rem;
   font-weight: 400;
   color: var(--accent-warm);
   margin: 0 0.5rem;
@@ -86,7 +86,7 @@
 
 .hero-greeting-text {
   font-family: var(--font-serif);
-  font-size: 15px;
+  font-size: 0.9rem;
   font-weight: 300;
   color: var(--text-secondary);
   line-height: 2.2;
@@ -96,7 +96,7 @@
 
 .hero-greeting-script {
   font-family: var(--font-display);
-  font-size: 22px;
+  font-size: 1.3rem;
   font-style: italic;
   color: var(--accent);
   font-weight: 400;
@@ -106,7 +106,7 @@
 /* Date display in hero */
 .hero-date {
   font-family: var(--font-display);
-  font-size: 14px;
+  font-size: 0.82rem;
   letter-spacing: 0.3em;
   color: var(--accent-warm);
   margin-top: 1.2rem;

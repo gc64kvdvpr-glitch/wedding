@@ -12,12 +12,31 @@ const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
 let supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 document.addEventListener('DOMContentLoaded', () => {
+  fixFontScaling();
   initScrollAnimations();
   initAccordion();
   initCopyButtons();
   initGuestbook();
   checkGiftVisibility();
 });
+
+/* ── Fix system font scaling (Android/Samsung) ───── */
+function fixFontScaling() {
+  const test = document.createElement('div');
+  test.style.cssText = 'position:absolute;left:-9999px;top:-9999px;font-size:100px;line-height:1;display:inline-block;font-family:sans-serif;';
+  test.textContent = 'A';
+  document.body.appendChild(test);
+
+  const rendered = test.getBoundingClientRect().height;
+  document.body.removeChild(test);
+
+  const scale = rendered / 100;
+  if (scale > 1.08) {
+    // Compensate root font-size so rem values render at intended size
+    const compensated = 17 / scale;
+    document.documentElement.style.fontSize = compensated + 'px';
+  }
+}
 
 function checkGiftVisibility() {
   const urlParams = new URLSearchParams(window.location.search);

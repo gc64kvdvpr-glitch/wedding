@@ -6,7 +6,7 @@
 }
 
 .guestbook-desc {
-  font-size: 13px;
+  font-size: 0.75rem;
   color: var(--text-muted);
   margin-top: -1.5rem;
   margin-bottom: var(--sp-md);
@@ -39,7 +39,7 @@
   border: 1px solid var(--inner-border);
   border-radius: 6px;
   padding: 0.55rem 0.7rem;
-  font-size: 13px;
+  font-size: 0.75rem;
   color: var(--inner-text-primary);
   background: transparent;
   outline: none;
@@ -54,7 +54,7 @@
   border: 1px solid var(--inner-border);
   border-radius: 6px;
   padding: 0.55rem 0.7rem;
-  font-size: 13px;
+  font-size: 0.75rem;
   color: var(--inner-text-primary);
   background: transparent;
   resize: none;
@@ -85,7 +85,7 @@
   display: flex;
   align-items: center;
   gap: 0.3rem;
-  font-size: 12px;
+  font-size: 0.7rem;
   color: var(--text-muted);
   padding: 0.35rem 0.7rem;
   border-radius: 20px;
@@ -118,7 +118,7 @@
   color: white;
   padding: 0.45rem 1.1rem;
   border-radius: 18px;
-  font-size: 12px;
+  font-size: 0.72rem;
   font-weight: 400;
   letter-spacing: 0.03em;
   transition: background 0.2s, transform 0.15s;
@@ -167,7 +167,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  font-size: 13px;
+  font-size: 0.75rem;
   color: var(--text-muted);
   display: flex;
   align-items: center;
@@ -191,12 +191,12 @@
 }
 
 .gb-page-arrow {
-  font-size: 14px;
+  font-size: 0.8rem;
 }
 
 .guestbook-empty {
   text-align: center;
-  font-size: 13px;
+  font-size: 0.75rem;
   color: var(--text-muted);
   padding: var(--sp-md) 0;
   font-style: italic;
@@ -227,7 +227,7 @@
 
 .guestbook-card-name {
   font-family: var(--font-serif);
-  font-size: 16px;
+  font-size: 0.95rem;
   font-weight: 400;
   color: var(--inner-text-primary);
 }
@@ -239,7 +239,7 @@
 }
 
 .guestbook-card-date-inline {
-  font-size: 12px;
+  font-size: 0.7rem;
   color: var(--inner-text-muted);
   font-weight: 300;
   margin-left: 0.4rem;
@@ -247,7 +247,7 @@
 }
 
 .gb-action-btn {
-  font-size: 13px;
+  font-size: 0.75rem;
   color: var(--inner-text-muted);
   padding: 2px 4px;
   border-radius: 4px;
@@ -258,10 +258,10 @@
 .gb-edit-btn:hover { color: var(--accent); background: rgba(74,90,58,0.1); }
 .gb-delete-btn:hover { color: #B56B63; background: rgba(181,107,99,0.08); }
 
-.secret-icon { font-size: 12px; margin-left: 0.15rem; }
+.secret-icon { font-size: 0.68rem; margin-left: 0.15rem; }
 
 .guestbook-card-message {
-  font-size: 15px;
+  font-size: 0.9rem;
   color: var(--inner-text-secondary);
   line-height: 1.6;
   font-weight: 300;
@@ -273,7 +273,7 @@
   color: var(--text-muted);
   font-style: italic;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 0.7rem;
 }
 
 

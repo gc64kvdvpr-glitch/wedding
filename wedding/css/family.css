@@ -24,7 +24,7 @@
 }
 
 .family-parent {
-  font-size: 17px;
+  font-size: 0.98rem;
   color: var(--inner-text-muted);
   margin-bottom: 0.2rem;
 }
@@ -33,7 +33,7 @@
   font-family: var(--font-serif);
   font-weight: 400;
   color: var(--inner-text-primary);
-  font-size: 18px;
+  font-size: 1.05rem;
 }
 
 .family-dot {
@@ -42,7 +42,7 @@
 }
 
 .family-relation {
-  font-size: 15px;
+  font-size: 0.9rem;
   color: var(--inner-text-muted);
   margin-bottom: 0.4rem;
   font-weight: 200;
@@ -50,7 +50,7 @@
 
 .family-child-name {
   font-family: var(--font-serif);
-  font-size: 18px;
+  font-size: 1.05rem;
   color: var(--inner-text-primary);
   font-weight: 400;
 }
